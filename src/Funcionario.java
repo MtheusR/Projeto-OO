@@ -1,6 +1,13 @@
 public class Funcionario {
     String nome;
-    String cpf;
+    private String cpf;
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+    public String getCpf() {
+        return cpf;
+    }
 
     public Funcionario(String nome, String cpf){
         this.nome = nome;
@@ -8,6 +15,6 @@ public class Funcionario {
     }
 
     public String toString(){
-        return "Nome: " + this.nome + ", CPF: " + this.cpf;
+        return "Nome: " + this.nome + ", CPF: " + getCpf();
     }
 }

@@ -1,4 +1,4 @@
-public class App {
+public class Main {
     //    Referencia
     //    Private atributo
     //    Modificador de acesso
@@ -6,12 +6,14 @@ public class App {
     //
 
     public static void main(String[] args) throws Exception {
+        
         ColecaoFuncionario listafunc = new ColecaoFuncionario();
         ColecaoNaoPerecivel listaNaoPerecivel = new ColecaoNaoPerecivel();
         ColecaoPerecivel listaPerecivel = new ColecaoPerecivel();
+        ColecaoNotaFiscal listaNotas = new ColecaoNotaFiscal();
 
-        NaoPerecivel n1 = new NaoPerecivel("Batata-Frita", "BatataSP", 30);
-        listaNaoPerecivel.addNaoPerecivel(n1);
+        NaoPerecivel np1 = new NaoPerecivel("Batata-Frita", "BatataSP", 30);
+        listaNaoPerecivel.addNaoPerecivel(np1);
         listaNaoPerecivel.printColecaoNaoPerecivel();
 
         Perecivel p1 = new Perecivel("Batata", "BataRJ", 3, "26/05/2022");
@@ -21,6 +23,11 @@ public class App {
         Funcionario f1 = new Funcionario("Matheus Robert", "12522173405");
         listafunc.addFunc(f1);
         listafunc.printColecaoFunc();
+
+        NotaFiscal nf1 = new NotaFiscal("24/05/2022", f1, np1, 2);
+        listaNotas.criarNotaFiscal(nf1);
+        listaNotas.printarColecaoNotaFiscal();
+
 
     }
 }
