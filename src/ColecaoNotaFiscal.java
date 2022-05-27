@@ -13,7 +13,7 @@ public class ColecaoNotaFiscal implements ContratoNotaFiscal {
 
     public void printarColecaoNotaFiscal() {
         int i;
-        System.out.println("\n-- Lista de Notas --");
+        System.out.println("\n\n-- Lista de Notas --");
         int n = listaNotas.size();
         for (i=0; i<n; i++){
             System.out.printf("      #NF %d#\n%s", i+1, listaNotas.get(i));

@@ -1,10 +1,10 @@
-public class Main {
-    //    Referencia
-    //    Private atributo
-    //    Modificador de acesso
-    //    CRUD (create, Retrieve, Update, Delete)
-    //
+//- instanceof (ok)
+//- pesquisar (falta implementar)
+//- delet (fazer)
+//- menu (feito ?)
+//- arrumar código
 
+public class Main {
     public static void main(String[] args) throws Exception {
         
         ColecaoFuncionario listafunc = new ColecaoFuncionario();
@@ -13,21 +13,35 @@ public class Main {
         ColecaoNotaFiscal listaNotas = new ColecaoNotaFiscal();
 
         NaoPerecivel np1 = new NaoPerecivel("Batata-Frita", "BatataSP", 30);
-        listaNaoPerecivel.addNaoPerecivel(np1);
-        listaNaoPerecivel.printColecaoNaoPerecivel();
+        if (np1 instanceof NaoPerecivel){
+            listaNaoPerecivel.addNaoPerecivel(np1);
+            listaNaoPerecivel.printColecaoNaoPerecivel();
+        }
+
 
         Perecivel p1 = new Perecivel("Batata", "BataRJ", 3, "26/05/2022");
-        listaPerecivel.addPerecivel(p1);
-        listaPerecivel.printColecaoPerecivel();
+        if (p1 instanceof Perecivel){
+            listaPerecivel.addPerecivel(p1);
+            listaPerecivel.printColecaoPerecivel();
+        }
+
+
 
         Funcionario f1 = new Funcionario("Matheus Robert", "12522173405");
-        listafunc.addFunc(f1);
-        listafunc.printColecaoFunc();
+        if (f1 instanceof Funcionario){
+            listafunc.addFunc(f1);
+            listafunc.printColecaoFunc();
+        }
+
 
         NotaFiscal nf1 = new NotaFiscal("24/05/2022", f1, np1, 2);
-        listaNotas.criarNotaFiscal(nf1);
-        listaNotas.printarColecaoNotaFiscal();
+        if (nf1 instanceof NotaFiscal){
+            listaNotas.criarNotaFiscal(nf1);
+            listaNotas.printarColecaoNotaFiscal();
+        }
 
+        //listaNaoPerecivel.procurarNaoPerecivel();
+        //listaPerecivel.procurarPerecivel();
 
     }
 }
