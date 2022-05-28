@@ -5,10 +5,12 @@ public class ColecaoFuncionario implements ContratoFuncionario {
 
     public void addFunc(Funcionario f){
         listafunc.add(f);
+        System.out.printf("\nFuncionario %s adicionado!", f.nome);
     }
 
     public void removerFunc(Funcionario f){
         listafunc.remove(f);
+        System.out.printf("\nFuncionario %s removido!", f.nome);
     }
 
     public void printColecaoFunc(){

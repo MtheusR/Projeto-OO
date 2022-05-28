@@ -1,15 +1,16 @@
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class ColecaoNaoPerecivel implements ContratoNaoPerecivel{
     ArrayList<Alimentos> listaNaoPerecivel = new ArrayList<Alimentos>();
 
     public void addNaoPerecivel(NaoPerecivel np){
         listaNaoPerecivel.add(np);
+        System.out.printf("\nAlimento [NP] %s adicionado!", np.produto);
     }
 
     public void removerNaoPerecivel(NaoPerecivel np){
         listaNaoPerecivel.remove(np);
+        System.out.printf("\nAlimento [NP] %s removido!", np.produto);
     }
 
     public void printColecaoNaoPerecivel(){
@@ -17,24 +18,20 @@ public class ColecaoNaoPerecivel implements ContratoNaoPerecivel{
         System.out.println("\n\n-- Lista de Alimentos Não Perecivel --");
         int n = listaNaoPerecivel.size();
         for (i=0; i<n; i++){
-            System.out.printf("#%d# %s", i+1, listaNaoPerecivel.get(i));
+            System.out.printf("\n#%d# %s", i+1, listaNaoPerecivel.get(i));
         }
     }
 
-    public void procurarNaoPerecivel(){
-
-        System.out.println("\n\nDigite o que você quer procurar: ");
-        Scanner input = new Scanner(System.in);
-        String pesq = input.next();
-
+    public void procurarNaoPerecivel(String nnp){
         int n = listaNaoPerecivel.size(); int i;
         for (i=0; i<n; i++){
             Alimentos p = (Alimentos) listaNaoPerecivel.get(i);
-            if (p.produto.equals(pesq)){
-                System.out.println(listaNaoPerecivel.get(i));
-            }else{System.out.println("Não foi encontrado: " + pesq);}
-            input.close();
+            if (p.produto.equals(nnp)){
+                System.out.println("\n" + listaNaoPerecivel.get(i));
+                i = 4;
+            }else if (i+1 == n){System.out.println("\nNão foi encontrado: " + nnp);}
         }
+        
     }    
     
 }
