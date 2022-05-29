@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class ColecaoNaoPerecivel implements ContratoNaoPerecivel{
     ArrayList<Alimentos> listaNaoPerecivel = new ArrayList<Alimentos>();
 
-    public void addNaoPerecivel(NaoPerecivel np){
+    public void adicionarNaoPerecivel(NaoPerecivel np){
         listaNaoPerecivel.add(np);
         System.out.printf("\nAlimento [NP] %s adicionado!", np.produto);
     }
@@ -28,8 +28,8 @@ public class ColecaoNaoPerecivel implements ContratoNaoPerecivel{
             Alimentos p = (Alimentos) listaNaoPerecivel.get(i);
             if (p.produto.equals(nnp)){
                 System.out.println("\n" + listaNaoPerecivel.get(i));
-                i = 4;
-            }else if (i+1 == n){System.out.println("\nNão foi encontrado: " + nnp);}
+                break;
+            }else{System.out.println("\nNão foi encontrado: " + nnp);}
         }
         
     }    

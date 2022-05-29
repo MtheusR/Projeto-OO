@@ -1,7 +1,8 @@
 public interface ContratoPerecivel {
     
-    public void addPerecivel(Perecivel p);
+    public void adicionarPerecivel(Perecivel p);
     public void removerPerecivel(Perecivel p);
     public void printColecaoPerecivel();   
     public void procurarPerecivel(String pp);
+
 }

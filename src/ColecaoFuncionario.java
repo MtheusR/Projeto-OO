@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class ColecaoFuncionario implements ContratoFuncionario {
     ArrayList<Funcionario> listafunc = new ArrayList<Funcionario>();
 
-    public void addFunc(Funcionario f){
+    public void adicionarFunc(Funcionario f){
         listafunc.add(f);
         System.out.printf("\nFuncionario %s adicionado!", f.nome);
     }
@@ -11,6 +11,17 @@ public class ColecaoFuncionario implements ContratoFuncionario {
     public void removerFunc(Funcionario f){
         listafunc.remove(f);
         System.out.printf("\nFuncionario %s removido!", f.nome);
+    }
+
+    public void procurarFuncionario(String func){
+        int n = listafunc.size(); int i;
+        for (i=0; i<n; i++){
+            Funcionario f = (Funcionario) listafunc.get(i);
+            if (f.getCpf().equals(func)){
+                System.out.println("\n" + listafunc.get(i));
+                break;
+            }else{System.out.println("\nNão foi encontrado O Funcionário com o CPF: " + func);}
+        }
     }
 
     public void printColecaoFunc(){

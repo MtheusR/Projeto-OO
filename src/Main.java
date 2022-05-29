@@ -1,11 +1,11 @@
 /*
-- DELETE (ok)
-- MENU (ok)
-- IMPUT.CLEAR(); PARA LIBERAR
-- LOOPING DE ERRO PARA PESQUISAR
-- IMPLEMENTAR TRY E CACTH
-- FAZER UM DOC
+- CAST E INSTANCEOF
+- *FAZER UM DOC
 - LIMPAR CÓDIGO / REVISAR
+*/
+
+/*
+ - mudar pesquisa para lista de alimentos gerais
 */
 
 import java.util.Scanner;
@@ -19,18 +19,20 @@ public class Main {
         System.out.print("| Opção \"2\" - Pesquisar                  |\n");
         System.out.print("| Opção \"3\" - Produtos                   |\n");
         System.out.print("| Opção \"4\" - Remoção de dados           |\n");
-        System.out.print("| Opção \"5\" - Sair                       |\n");
+        System.out.print("| Opção \"5\" - Estoque                    |\n");
+        System.out.print("| Opção \"6\" - Sair                       |\n");
         System.out.print("|----------------------------------------|\n");
         System.out.print("Digite uma opção: ");
     }
 
-    public static void MenuBuscar(){
+    public static void MenuPesquisar(){
         clear();
         System.out.print("\n\n|       ##-- MENU PESQUISAR --##         |\n");
         System.out.print("|----------------------------------------|\n");
         System.out.print("| Opção \"1\" - Perecível                  |\n");
         System.out.print("| Opção \"2\" - Não Perecível              |\n");
-        System.out.print("| Opção \"3\" - Sair                       |\n");
+        System.out.print("| Opção \"3\" - Funcionarios             |\n");
+        System.out.print("| Opção \"4\" - Sair                       |\n");
         System.out.print("|----------------------------------------|\n");
         System.out.print("Digite uma opção: ");
     }
@@ -41,7 +43,8 @@ public class Main {
         System.out.print("|--------------------------------------|\n");
         System.out.print("| Opção \"1\" - Perecível                |\n");
         System.out.print("| Opção \"2\" - Não Perecível            |\n");
-        System.out.print("| Opção \"3\" - Sair                     |\n");
+        System.out.print("| Opção \"3\" - Funcionarios             |\n");
+        System.out.print("| Opção \"4\" - Sair                     |\n");
         System.out.print("|--------------------------------------|\n");
         System.out.print("Digite uma opção: ");
     }
@@ -59,39 +62,44 @@ public class Main {
         ContratoFuncionario listafunc = new ColecaoFuncionario();
         ContratoNaoPerecivel listaNaoPerecivel = new ColecaoNaoPerecivel();
         ContratoPerecivel listaPerecivel = new ColecaoPerecivel();
+        ColecaoAlimentos listaAlimentos = new ColecaoAlimentos();
 
         NaoPerecivel np1 = new NaoPerecivel("Biscoito de leite", "Treloso", 30);
         if (np1 instanceof NaoPerecivel){
-            listaNaoPerecivel.addNaoPerecivel(np1);
+            listaNaoPerecivel.adicionarNaoPerecivel(np1);
+            listaAlimentos.adicionarAlimento(np1);
         }
         
         NaoPerecivel np2 = new NaoPerecivel("Sal", "Maresia", 41);
         if (np2 instanceof NaoPerecivel){
-            listaNaoPerecivel.addNaoPerecivel(np2);
+            listaNaoPerecivel.adicionarNaoPerecivel(np2);
+            listaAlimentos.adicionarAlimento(np2);;
         }
 
         //------------------------//
 
         Perecivel p1 = new Perecivel("Peito de frango", "Mauriceia", 10, "30/08/2022");
         if (p1 instanceof Perecivel){
-            listaPerecivel.addPerecivel(p1);
+            listaPerecivel.adicionarPerecivel(p1);
+            listaAlimentos.adicionarAlimento(p1);
         }
 
         Perecivel p2 = new Perecivel("Achocolatado", "Nescau",  50, "26/06/2022");
         if (p2 instanceof Perecivel){
-            listaPerecivel.addPerecivel(p2);
+            listaPerecivel.adicionarPerecivel(p2);
+            listaAlimentos.adicionarAlimento(p2);
         }
 
         //------------------------//
 
         Funcionario f1 = new Funcionario("Matheus Robert", "12522173405");
         if (f1 instanceof Funcionario){
-            listafunc.addFunc(f1);
+            listafunc.adicionarFunc(f1);
         }
 
         Funcionario f2 = new Funcionario("Pedro Henrique", "16513456884");
         if (f2 instanceof Funcionario){
-            listafunc.addFunc(f2);
+            listafunc.adicionarFunc(f2);
         }
 
         //------------------------//
@@ -100,48 +108,53 @@ public class Main {
         Scanner input = new Scanner(System.in);
         String op = input.nextLine();
         int opconvertido = Integer.parseInt(op);
-        while (opconvertido <= 4){
+        while (opconvertido <= 5){
 
             switch (opconvertido){
                 case 1:
                     NaoPerecivel np3 = new NaoPerecivel("Oleo de Soja", "Girassol", 35);
                     if (np3 instanceof NaoPerecivel){
-                        listaNaoPerecivel.addNaoPerecivel(np3);
+                        listaNaoPerecivel.adicionarNaoPerecivel(np3);
+                        listaAlimentos.adicionarAlimento(np3);
                     }
                 
                     Perecivel p3 = new Perecivel("Iorgute", "Danone", 10, "20/07/2022");
                     if (p3 instanceof Perecivel){
-                        listaPerecivel.addPerecivel(p3);
+                        listaPerecivel.adicionarPerecivel(p3);
+                        listaAlimentos.adicionarAlimento(p3);
                     }    
 
                     Funcionario f3 = new Funcionario("Bia Torres Neris", "16453498456");
                     if (f3 instanceof Funcionario){
-                        listafunc.addFunc(f3);
+                        listafunc.adicionarFunc(f3);
                     }
 
                 break;
                 
                 case 2:
-                    MenuBuscar();
+                    MenuPesquisar();
                     String op2 = input.nextLine();
                     int opconvertido2 = Integer.parseInt(op2);
                     
-                    while(opconvertido2 <= 2){
+                    while(opconvertido2 <= 3){
                         switch (opconvertido2){
                             case 1:
                                 String pesq = input.nextLine();
                                 listaPerecivel.procurarPerecivel(pesq);
-                                input.nextLine();
                             break;
     
                             case 2:
                                 pesq = input.nextLine();
                                 listaNaoPerecivel.procurarNaoPerecivel(pesq);
-                                input.nextLine();
+                            break;
+
+                            case 3:
+                                pesq = input.nextLine();
+                                listafunc.procurarFuncionario(pesq);
                             break;
                         }
 
-                        MenuBuscar();
+                        MenuPesquisar();
                         op2 = input.nextLine();
                         opconvertido2 = Integer.parseInt(op2);
                     }
@@ -161,22 +174,34 @@ public class Main {
 
                 case 4:
                     MenuDeletar();
-                    int op3 = input.nextInt();
-                    while(op3 <= 2){
-                        switch (op3){
+                    String op3 = input.nextLine();
+                    int opconvertido3 = Integer.parseInt(op3);
+                    while(opconvertido3 <= 3){
+                        switch (opconvertido3){
                             case 1:
                                 listaPerecivel.removerPerecivel(p1);
+                                listaAlimentos.removerAlimento(p1);
                                 listaPerecivel.printColecaoPerecivel();
                             break;
     
                             case 2:
                                 listaNaoPerecivel.removerNaoPerecivel(np1);
+                                listaAlimentos.removerAlimento(np1);
                                 listaNaoPerecivel.printColecaoNaoPerecivel();
                             break;
+
+                            case 3:
+                                listafunc.removerFunc(f1);
+                                listafunc.printColecaoFunc();
                         }
                         MenuDeletar();
-                        op3 = input.nextInt();       
+                        op3 = input.nextLine();
+                        opconvertido3 = Integer.parseInt(op3);    
                     }
+                break;
+
+                case 5:
+                    listaAlimentos.printarColecaoAlimentos();
                 break;
             }
             MenuInicial();

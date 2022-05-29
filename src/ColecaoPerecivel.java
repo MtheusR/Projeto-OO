@@ -3,10 +3,12 @@ import java.util.ArrayList;
 
 public class ColecaoPerecivel implements ContratoPerecivel {
     ArrayList<Alimentos> listaPerecivel = new ArrayList<Alimentos>();
+    
 
-    public void addPerecivel(Perecivel p){
+    public void adicionarPerecivel(Perecivel p){
         listaPerecivel.add(p);
         System.out.printf("\nAlimento [P] %s adicionado!", p.produto);
+
     }
 
     public void removerPerecivel(Perecivel p){
@@ -29,10 +31,10 @@ public class ColecaoPerecivel implements ContratoPerecivel {
             Alimentos p = (Alimentos) listaPerecivel.get(i);
             if (p.produto.equals(pp)){
                 System.out.println("\n" + listaPerecivel.get(i));
-                i = 4;
-            }else if (i+1 == n){System.out.println("\nNão foi encontrado: " + pp);}
+                break;
+            }else{System.out.println("\nNão foi encontrado: " + pp);}
             
         }
         
-    }   
+    }
 }

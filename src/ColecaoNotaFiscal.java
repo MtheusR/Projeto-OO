@@ -19,5 +19,4 @@ public class ColecaoNotaFiscal implements ContratoNotaFiscal {
             System.out.printf("\n      #NF %d#\n%s", i+1, listaNotas.get(i));
         }
     }
-
 }
