@@ -20,7 +20,7 @@ public class ColecaoFuncionario implements ContratoFuncionario {
             if (f.getCpf().equals(func)){
                 System.out.println("\n" + listafunc.get(i));
                 break;
-            }else{System.out.println("\nNão foi encontrado O Funcionário com o CPF: " + func);}
+            }else if(i+1 == n){System.out.println("\nNão foi encontrado O Funcionário com o CPF: " + func);}
         }
     }
 
@@ -29,7 +29,7 @@ public class ColecaoFuncionario implements ContratoFuncionario {
         System.out.println("\n\n-- Lista de Funcionários --");
         int n = listafunc.size();
         for (i=0; i<n; i++){
-            System.out.printf("      #Funcionário %d#\n%s", i+1, listafunc.get(i));
+            System.out.printf("      \n#Funcionário %d#\n%s", i+1, listafunc.get(i));
         }
     }   
 }

@@ -1,11 +1,8 @@
 /*
 - CAST E INSTANCEOF
 - *FAZER UM DOC
+- SOBRE CARGA
 - LIMPAR CÓDIGO / REVISAR
-*/
-
-/*
- - mudar pesquisa para lista de alimentos gerais
 */
 
 import java.util.Scanner;
@@ -31,7 +28,7 @@ public class Main {
         System.out.print("|----------------------------------------|\n");
         System.out.print("| Opção \"1\" - Perecível                  |\n");
         System.out.print("| Opção \"2\" - Não Perecível              |\n");
-        System.out.print("| Opção \"3\" - Funcionarios             |\n");
+        System.out.print("| Opção \"3\" - Funcionarios               |\n");
         System.out.print("| Opção \"4\" - Sair                       |\n");
         System.out.print("|----------------------------------------|\n");
         System.out.print("Digite uma opção: ");
@@ -49,12 +46,22 @@ public class Main {
         System.out.print("Digite uma opção: ");
     }
 
+    public static void MenuPrintar(){
+        clear();
+        System.out.print("\n\n|    ##-- MENU VISUALIZAR --##     |\n");
+        System.out.print("|--------------------------------------|\n");
+        System.out.print("| Opção \"1\" - Alimentos                |\n");
+        System.out.print("| Opção \"3\" - Funcionarios             |\n");
+        System.out.print("| Opção \"4\" - Sair                     |\n");
+        System.out.print("|--------------------------------------|\n");
+        System.out.print("Digite uma opção: ");
+    }
+
     public static void clear(){
         for(int i = 0; i < 100; i++){
             System.out.println("");
         }
     }
-
 
     public static void main(String[] args) throws Exception {
         
@@ -64,33 +71,29 @@ public class Main {
         ContratoPerecivel listaPerecivel = new ColecaoPerecivel();
         ColecaoAlimentos listaAlimentos = new ColecaoAlimentos();
 
-        NaoPerecivel np1 = new NaoPerecivel("Biscoito de leite", "Treloso", 30);
+        NaoPerecivel np1 = new NaoPerecivel("Biscoito de leite", "Treloso", 30, 1.85);
         if (np1 instanceof NaoPerecivel){
             listaNaoPerecivel.adicionarNaoPerecivel(np1);
             listaAlimentos.adicionarAlimento(np1);
         }
         
-        NaoPerecivel np2 = new NaoPerecivel("Sal", "Maresia", 41);
+        NaoPerecivel np2 = new NaoPerecivel("Sal", "Maresia", 41, 1.50);
         if (np2 instanceof NaoPerecivel){
             listaNaoPerecivel.adicionarNaoPerecivel(np2);
             listaAlimentos.adicionarAlimento(np2);;
         }
 
-        //------------------------//
-
-        Perecivel p1 = new Perecivel("Peito de frango", "Mauriceia", 10, "30/08/2022");
+        Perecivel p1 = new Perecivel("Peito de frango", "Mauricea", 10, "30/08/2022", 15.0);
         if (p1 instanceof Perecivel){
             listaPerecivel.adicionarPerecivel(p1);
             listaAlimentos.adicionarAlimento(p1);
         }
 
-        Perecivel p2 = new Perecivel("Achocolatado", "Nescau",  50, "26/06/2022");
+        Perecivel p2 = new Perecivel("Achocolatado", "Nescau",  50, "26/06/2022", 6.0);
         if (p2 instanceof Perecivel){
             listaPerecivel.adicionarPerecivel(p2);
             listaAlimentos.adicionarAlimento(p2);
         }
-
-        //------------------------//
 
         Funcionario f1 = new Funcionario("Matheus Robert", "12522173405");
         if (f1 instanceof Funcionario){
@@ -102,8 +105,6 @@ public class Main {
             listafunc.adicionarFunc(f2);
         }
 
-        //------------------------//
-
         MenuInicial();
         Scanner input = new Scanner(System.in);
         String op = input.nextLine();
@@ -112,13 +113,13 @@ public class Main {
 
             switch (opconvertido){
                 case 1:
-                    NaoPerecivel np3 = new NaoPerecivel("Oleo de Soja", "Girassol", 35);
+                    NaoPerecivel np3 = new NaoPerecivel("Oleo de Soja", "Girassol", 35, 18.0);
                     if (np3 instanceof NaoPerecivel){
                         listaNaoPerecivel.adicionarNaoPerecivel(np3);
                         listaAlimentos.adicionarAlimento(np3);
                     }
                 
-                    Perecivel p3 = new Perecivel("Iorgute", "Danone", 10, "20/07/2022");
+                    Perecivel p3 = new Perecivel("Iorgute", "Danone", 10, "20/07/2022", 6.50);
                     if (p3 instanceof Perecivel){
                         listaPerecivel.adicionarPerecivel(p3);
                         listaAlimentos.adicionarAlimento(p3);
@@ -139,18 +140,24 @@ public class Main {
                     while(opconvertido2 <= 3){
                         switch (opconvertido2){
                             case 1:
+                                System.out.print("\nDigite o alimento desejado: ");
                                 String pesq = input.nextLine();
                                 listaPerecivel.procurarPerecivel(pesq);
+
                             break;
     
                             case 2:
+                                System.out.print("\nDigite o alimento desejado: ");
                                 pesq = input.nextLine();
                                 listaNaoPerecivel.procurarNaoPerecivel(pesq);
+
                             break;
 
                             case 3:
+                                System.out.print("\nDigite o CPF do Funcionario desejado: ");
                                 pesq = input.nextLine();
                                 listafunc.procurarFuncionario(pesq);
+
                             break;
                         }
 
@@ -162,7 +169,7 @@ public class Main {
                 break;
                 
                 case 3:
-                    NotaFiscal nf1 = new NotaFiscal("24/05/2022", f1, np1, 2);
+                    NotaFiscal nf1 = new NotaFiscal("24/05/2022", f1, np1, 2, np1);
                     if (nf1 instanceof NotaFiscal){
                         listaNotas.criarNotaFiscal(nf1);
                         clear();
@@ -201,7 +208,23 @@ public class Main {
                 break;
 
                 case 5:
-                    listaAlimentos.printarColecaoAlimentos();
+                    MenuPrintar();
+                    String op4 = input.nextLine();
+                    int  opconvertido4 = Integer.parseInt(op4);
+                    while(opconvertido4 <= 2){
+                        switch (opconvertido4){
+                            case 1:
+                                listaAlimentos.printarColecaoAlimentos();
+                            break;
+
+                            case 2:
+                                listafunc.printColecaoFunc();
+                            break;
+                        }
+                        MenuPrintar();
+                        op4 = input.nextLine();
+                        opconvertido4 = Integer.parseInt(op4);
+                    }
                 break;
             }
             MenuInicial();

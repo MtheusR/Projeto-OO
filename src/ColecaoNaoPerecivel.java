@@ -29,7 +29,7 @@ public class ColecaoNaoPerecivel implements ContratoNaoPerecivel{
             if (p.produto.equals(nnp)){
                 System.out.println("\n" + listaNaoPerecivel.get(i));
                 break;
-            }else{System.out.println("\nNão foi encontrado: " + nnp);}
+            }else if(i+1 == n){System.out.println("\nNão foi encontrado: " + nnp);}
         }
         
     }    
