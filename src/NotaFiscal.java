@@ -18,7 +18,7 @@ public class NotaFiscal {
         this.quantidade = quantidade;
         item.quantidade -= quantidade;
         this.preco = preco;
-        this.valorTotal = valorTotal(quantidade);
+        this.valorTotal = this.preco.preco * quantidade;
     }
 
     public String toString(){

@@ -1,7 +1,8 @@
 /*
-- CAST E INSTANCEOF
+- SOBRESCREVER E BUG DA NOTA FISCAL (OK)
+- *CAST E INSTANCEOF
 - *FAZER UM DOC
-- SOBRE CARGA
+- SOBRE CARGA "(OK)"
 - LIMPAR CÓDIGO / REVISAR
 */
 
@@ -51,8 +52,8 @@ public class Main {
         System.out.print("\n\n|    ##-- MENU VISUALIZAR --##     |\n");
         System.out.print("|--------------------------------------|\n");
         System.out.print("| Opção \"1\" - Alimentos                |\n");
-        System.out.print("| Opção \"3\" - Funcionarios             |\n");
-        System.out.print("| Opção \"4\" - Sair                     |\n");
+        System.out.print("| Opção \"2\" - Funcionários             |\n");
+        System.out.print("| Opção \"3\" - Sair                     |\n");
         System.out.print("|--------------------------------------|\n");
         System.out.print("Digite uma opção: ");
     }
@@ -70,12 +71,14 @@ public class Main {
         ContratoNaoPerecivel listaNaoPerecivel = new ColecaoNaoPerecivel();
         ContratoPerecivel listaPerecivel = new ColecaoPerecivel();
         ColecaoAlimentos listaAlimentos = new ColecaoAlimentos();
-
+        
         NaoPerecivel np1 = new NaoPerecivel("Biscoito de leite", "Treloso", 30, 1.85);
         if (np1 instanceof NaoPerecivel){
             listaNaoPerecivel.adicionarNaoPerecivel(np1);
             listaAlimentos.adicionarAlimento(np1);
         }
+
+        System.out.print(np1);
         
         NaoPerecivel np2 = new NaoPerecivel("Sal", "Maresia", 41, 1.50);
         if (np2 instanceof NaoPerecivel){

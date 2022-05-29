@@ -3,13 +3,22 @@ import java.util.ArrayList;
 public class ColecaoAlimentos {
 
     ArrayList<Alimentos> listaAlimentos = new ArrayList<Alimentos>();
+
     
-    public void adicionarAlimento(Alimentos a){
-        listaAlimentos.add(a);
+    public void adicionarAlimento(NaoPerecivel anp){
+        listaAlimentos.add(anp);
     }
 
-    public void removerAlimento(Alimentos a){
-        listaAlimentos.remove(a);
+    public void adicionarAlimento(Perecivel ap){
+        listaAlimentos.add(ap);
+    }
+
+    public void removerAlimento(NaoPerecivel anp){
+        listaAlimentos.remove(anp);
+    }
+
+    public void removerAlimento(Perecivel ap){
+        listaAlimentos.remove(ap);
     }
 
     public void printarColecaoAlimentos() {
