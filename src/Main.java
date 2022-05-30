@@ -1,14 +1,12 @@
-/* - *CAST E INSTANCEOF  - SOBRE CARGA "(OK)" - LIMPAR CÓDIGO / REVISAR */
 import java.util.Scanner;
 public class Main {
 
     public static void MenuInicial(){
-        clear();
         System.out.print("\n\n|          ##-- MENU ISURA --##          |\n");
         System.out.print("|----------------------------------------|\n");
         System.out.print("| Opção \"1\" - Adicionar                  |\n");
         System.out.print("| Opção \"2\" - Pesquisar                  |\n");
-        System.out.print("| Opção \"3\" - Produtos                   |\n");
+        System.out.print("| Opção \"3\" - Gerar Nota Fiscal          |\n");
         System.out.print("| Opção \"4\" - Remoção de dados           |\n");
         System.out.print("| Opção \"5\" - Estoque                    |\n");
         System.out.print("| Opção \"6\" - Sair                       |\n");
@@ -17,7 +15,6 @@ public class Main {
     }
 
     public static void MenuPesquisar(){
-        clear();
         System.out.print("\n\n|       ##-- MENU PESQUISAR --##         |\n");
         System.out.print("|----------------------------------------|\n");
         System.out.print("| Opção \"1\" - Perecível                  |\n");
@@ -29,7 +26,6 @@ public class Main {
     }
 
     public static void MenuDeletar(){
-        clear();
         System.out.print("\n\n|       ##-- MENU DELETAR --##         |\n");
         System.out.print("|--------------------------------------|\n");
         System.out.print("| Opção \"1\" - Perecível                |\n");
@@ -41,7 +37,6 @@ public class Main {
     }
 
     public static void MenuPrintar(){
-        clear();
         System.out.print("\n\n|    ##-- MENU VISUALIZAR --##     |\n");
         System.out.print("|--------------------------------------|\n");
         System.out.print("| Opção \"1\" - Alimentos                |\n");
@@ -51,11 +46,11 @@ public class Main {
         System.out.print("Digite uma opção: ");
     }
 
-    public static void clear(){
+    /*public static void clear(){
         for(int i = 0; i < 100; i++){
             System.out.println("");
         }
-    }
+    }*/
 
     public static void main(String[] args) throws Exception {
         
@@ -104,7 +99,6 @@ public class Main {
         String op = input.nextLine();
         int opconvertido = Integer.parseInt(op);
         while (opconvertido <= 5){
-
             switch (opconvertido){
                 case 1:
                     NaoPerecivel np3 = new NaoPerecivel("Oleo de Soja", "Girassol", 35, 18.0);
@@ -166,8 +160,8 @@ public class Main {
                     NotaFiscal nf1 = new NotaFiscal("24/05/2022", f1, np1, 2, np1);
                     if (nf1 instanceof NotaFiscal){
                         listaNotas.criarNotaFiscal(nf1);
-                        clear();
-                        listaNotas.printarColecaoNotaFiscal();
+                        System.out.println("");
+                        listaNotas.printarNotaFiscal(nf1);
                         System.out.println("\n");
                         listaNaoPerecivel.printColecaoNaoPerecivel();
                     }
@@ -180,7 +174,7 @@ public class Main {
                     while(opconvertido3 <= 3){
                         switch (opconvertido3){
                             case 1:
-                                listaPerecivel.removerPerecivel(p1);//removendo objeto Peito de Frango
+                                listaPerecivel.removerPerecivel(p1);
                                 listaAlimentos.removerAlimento(p1);
                                 listaPerecivel.printColecaoPerecivel();
                             break;

@@ -3,16 +3,19 @@ import java.util.ArrayList;
 public class ColecaoFuncionario implements ContratoFuncionario {
     ArrayList<Funcionario> listafunc = new ArrayList<Funcionario>();
 
+    //Adicionando
     public void adicionarFunc(Funcionario f){
         listafunc.add(f);
         System.out.printf("\nFuncionario %s adicionado!", f.nome);
     }
 
+    //Removendo
     public void removerFunc(Funcionario f){
         listafunc.remove(f);
         System.out.printf("\nFuncionario %s removido!", f.nome);
     }
 
+    //Procurando objeto na lista
     public void procurarFuncionario(String func){
         int n = listafunc.size(); int i;
         for (i=0; i<n; i++){
@@ -24,6 +27,7 @@ public class ColecaoFuncionario implements ContratoFuncionario {
         }
     }
 
+    //Printando toda a lista
     public void printColecaoFunc(){
         int i;
         System.out.println("\n\n-- Lista de Funcionários --");

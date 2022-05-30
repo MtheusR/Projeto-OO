@@ -13,7 +13,6 @@ public class NotaFiscal {
         item.quantidade -= quantidadePedido;
         this.preco = preco;
         this.valorTotal = preco.preco * quantidadePedido;
-
     }
 
     public String toString(){
