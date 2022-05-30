@@ -1,28 +1,23 @@
 public class NotaFiscal {
     String dataNota;
-    Funcionario funCaixa;
-    Alimentos produto;
-    int quantidade;
-    Alimentos preco;
+    Funcionario funCaixa;//f1
+    Alimentos produto, preco;//np1
+    int quantidadePedido;
     double valorTotal;
 
-    public double valorTotal(int quantidade){
-        valorTotal = this.preco.preco * quantidade;
-        return valorTotal;
-    }
-
-    public NotaFiscal(String dataNota, Funcionario funCaixa, Alimentos item, int quantidade, Alimentos preco) {
+    public NotaFiscal(String dataNota, Funcionario funCaixa, Alimentos item, int quantidadePedido, Alimentos preco) {
         this.dataNota = dataNota;
         this.funCaixa = funCaixa;
         this.produto = item;
-        this.quantidade = quantidade;
-        item.quantidade -= quantidade;
+        this.quantidadePedido = quantidadePedido;
+        item.quantidade -= quantidadePedido;
         this.preco = preco;
-        this.valorTotal = this.preco.preco * quantidade;
+        this.valorTotal = preco.preco * quantidadePedido;
+
     }
 
     public String toString(){
-        return "Data de transação: " + this.dataNota + "\nFuncionario " + this.funCaixa + "\nItens: " + this.produto.produto + ", Marca: " + this.produto.marca + "\nQuantidade: " + this.quantidade + "\nValor total: R$" + this.valorTotal;
+        return "Data de transação: " + this.dataNota + "\nFuncionario " + this.funCaixa + "\nItens: " + this.produto.produto + ", Marca: " + this.produto.marca + "\nQuantidade: " + this.quantidadePedido + "\nValor total: R$" + this.valorTotal;
     }
 
 

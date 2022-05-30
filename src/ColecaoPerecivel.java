@@ -32,7 +32,7 @@ public class ColecaoPerecivel implements ContratoPerecivel {
             if (p.produto.equals(pp)){
                 System.out.println("\n" + listaPerecivel.get(i));
                 break;
-            }else if(i+1 == n){System.out.println("\nNão foi encontrado: " + pp);}
+            }else if(i++ == n){System.out.println("\nNão foi encontrado: " + pp);}
             
         }
         

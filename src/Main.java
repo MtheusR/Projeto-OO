@@ -1,11 +1,4 @@
-/*
-- SOBRESCREVER E BUG DA NOTA FISCAL (OK)
-- *CAST E INSTANCEOF
-- *FAZER UM DOC
-- SOBRE CARGA "(OK)"
-- LIMPAR CÓDIGO / REVISAR
-*/
-
+/* - *CAST E INSTANCEOF  - SOBRE CARGA "(OK)" - LIMPAR CÓDIGO / REVISAR */
 import java.util.Scanner;
 public class Main {
 
@@ -77,8 +70,6 @@ public class Main {
             listaNaoPerecivel.adicionarNaoPerecivel(np1);
             listaAlimentos.adicionarAlimento(np1);
         }
-
-        System.out.print(np1);
         
         NaoPerecivel np2 = new NaoPerecivel("Sal", "Maresia", 41, 1.50);
         if (np2 instanceof NaoPerecivel){
@@ -189,7 +180,7 @@ public class Main {
                     while(opconvertido3 <= 3){
                         switch (opconvertido3){
                             case 1:
-                                listaPerecivel.removerPerecivel(p1);
+                                listaPerecivel.removerPerecivel(p1);//removendo objeto Peito de Frango
                                 listaAlimentos.removerAlimento(p1);
                                 listaPerecivel.printColecaoPerecivel();
                             break;
